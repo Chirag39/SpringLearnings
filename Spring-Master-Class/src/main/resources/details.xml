@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans  xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+
+
+<bean id="customer" class="org.q1_8_10.Customer"  init-method="init"  destroy-method="cleanup">
+	<constructor-arg value="Chirag"/> 
+	<constructor-arg value="01"/>
+	<constructor-arg value="987654321"/> 
+	<constructor-arg ref="address"/> 
+	
+<!-- <property name="address" ref="address"/>   -->	
+</bean>
+
+<bean id="address" class="org.q1_8_10.Address">
+	<property name="zip" value="400002"/>
+	<property name="street" value="CH-road"/>
+	<property name="city" value="Mumbai"/>
+	<property name="state" value="Maharashtra"/>
+	<property name="country" value="India"/>
+</bean>
+
+<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+
+</beans>
